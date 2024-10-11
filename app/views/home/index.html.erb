@@ -1,0 +1,46 @@
+<div class="flex items-center justify-center min-h-screen bg-gray-100">
+  <!-- Card Container -->
+  <div class="p-6 bg-white rounded-lg shadow-lg w-96">
+    <!-- Image -->
+    <div class="flex justify-center">
+      <img src="https://via.placeholder.com/150" alt="Profile" class="object-cover w-32 h-32 mb-4 rounded-full">
+    </div>
+
+    <!-- Description -->
+    <div class="mb-4 text-center">
+      <p class="text-sm text-gray-600">This is a brief description of the user or the content they posted.</p>
+    </div>
+
+    <!-- Like and Comment Buttons -->
+    <div class="flex justify-around mb-4">
+      <div class="flex flex-col items-center">
+        <button class="flex items-center justify-center w-10 h-10 px-4 py-2 text-white bg-blue-500 rounded-full hover:bg-blue-600">
+          1
+        </button>
+        <span>Likes</span>
+      </div>
+      <div class="flex flex-col items-center">
+        <button class="flex items-center justify-center w-10 h-10 px-4 py-2 text-white bg-green-500 rounded-full hover:bg-green-600">
+          2
+        </button>
+        <span>Comments</span>
+      </div>
+    </div>
+
+    <!-- Carousel -->
+    <div class="mt-6">
+      <div data-controller="home" class="relative overflow-hidden">
+        <div class="flex space-x-8 transition-transform duration-700 ease-in-out" data-home-target="container">
+          <img src="https://via.placeholder.com/150" alt="Image 1" class="object-cover w-32 h-32 rounded-lg">
+          <img src="https://via.placeholder.com/150" alt="Image 1" class="object-cover w-32 h-32 rounded-lg">
+          <img src="https://via.placeholder.com/150" alt="Image 1" class="object-cover w-32 h-32 rounded-lg">
+          <img src="https://via.placeholder.com/150" alt="Image 1" class="object-cover w-32 h-32 rounded-lg">
+          <img src="https://via.placeholder.com/150" alt="Image 2" class="object-cover w-32 h-32 rounded-lg">
+          <img src="https://via.placeholder.com/150" alt="Image 3" class="object-cover w-32 h-32 rounded-lg">
+        </div>
+        <button data-action="home#prev" class="absolute left-0 w-8 h-8 transform -translate-y-1/2 bg-gray-300 rounded-full top-1/2">‹</button>
+        <button data-action="home#next" class="absolute right-0 w-8 h-8 transform -translate-y-1/2 bg-gray-300 rounded-full top-1/2">›</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+<div class="flex items-center justify-center min-h-screen bg-gray-100">
+  <!-- Card Container -->
+  <div class="p-6 bg-white rounded-lg shadow-lg w-96">
+    <%=turbo_stream_from "card"%>
+    <!-- Image -->
+    <div class="flex justify-center">
+      <%= image_tag @card.processed_image, class: 'object-cover w-32 h-32 mb-4 hover:scale-110 transition-transform rounded-full' %>
+    </div>
+
+    <!-- Description -->
+    <div class="mb-4 text-center">
+      <%=turbo_frame_tag "card_#{@card.id}" do %>
+        <%=render partial: "card", partial: "card", locals: {card: @card} %>
+      <% end %>
+    </div>
+
+    <!-- Like and Comment Buttons -->
+    <div class="flex justify-around mb-4">
+      <div class="flex flex-col items-center">
+        <%=turbo_frame_tag "card_likes_#{@card.id}", class: "flex items-center justify-center w-10 h-10 px-4 py-2 text-white bg-blue-500 rounded-full hover:bg-blue-600" do %>
+          <%=@card.likes %>
+        <% end %>
+        <span class="text-sm text-slate-600">Likes</span>
+      </div>
+      <div class="flex flex-col items-center">
+        <%=turbo_frame_tag "card_comments_#{@card.id}", class: "flex items-center justify-center w-10 h-10 px-4 py-2 text-center text-white bg-green-500 rounded-full hover:bg-green-600" do %>
+          <%=@card.comments.count %>
+        <% end %>
+        <span class="text-sm text-slate-600">Comments</span>
+      </div>
+    </div>
+
+
+    <!-- Carousel -->
+    <div class="mt-6">
+      <div data-controller="home" class="relative overflow-hidden">
+
+        <div class="flex space-x-8 transition-transform duration-700 ease-in-out" data-home-target="container">
+          <% @cards.each do |card| %>
+            <%= image_tag card.processed_image, class: 'w-32 h-32 rounded-lg hover:scale-90 hover:rounded-md transition-transform duration-300 ease-in-out object-cover' %>
+          <% end %>
+        </div>
+        <button data-action="home#prev" class="absolute left-0 w-8 h-8 transform -translate-y-1/2 bg-gray-300 rounded-full top-1/2">‹</button>
+        <button data-action="home#next" class="absolute right-0 w-8 h-8 transform -translate-y-1/2 bg-gray-300 rounded-full top-1/2">›</button>
+      </div>
+    </div>
+  </div>
+</div>
