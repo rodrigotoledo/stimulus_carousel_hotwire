@@ -1,7 +1,7 @@
 namespace :card do
   desc "Increment likes"
   task increment_likes: :environment do
-    card = Card.find(ENV['id'])
+    card = Card.find(ENV["id"])
     card.description = Faker::Lorem.sentence
     card.likes += 1
     if card.save
@@ -13,7 +13,7 @@ namespace :card do
 
   desc "Increment comments"
   task increment_comments: :environment do
-    comment = Comment.new(card_id: ENV['id'], content: Faker::Lorem.sentence)
+    comment = Comment.new(card_id: ENV["id"], content: Faker::Lorem.sentence)
 
     if comment.save
       puts "Comments incremented"
